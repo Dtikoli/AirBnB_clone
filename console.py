@@ -108,10 +108,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(arg_list) == 1:
             print("** instance id missing **")
-        elif "{}.{}".format(arg_list[0], arg_list[1]) not in obj_dict:
+        elif f"{arg_list[0]}.{arg_list[1]}" not in obj_dict:
             print("** no instance found **")
         else:
-            print(obj_dict["{}.{}".format(arg_list[0], arg_list[1])])
+            print(obj_dict[f"{arg_list[0]}.{arg_list[1]}"])
 
     def do_destroy(self, arg):
         """Usage: destroy <class> <id> or <class>.destroy(<id>)
