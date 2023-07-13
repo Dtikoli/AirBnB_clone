@@ -69,9 +69,9 @@ class HBNBCommand(cmd.Cmd):
             if match is not None:
                 vcmd = [arg_list[1][:match.span()[0]], match.group()[1:-1]]
                 if vcmd[0] in arg_dict.keys():
-                    invoke = "{} {}".format(arg_list[0], vcmd[1])
+                    invoke = f"{arg_list[0]} {vcmd[1]}"
                     return arg_dict[vcmd[0]](invoke)
-        print("*** Unknown syntax: {}".format(arg))
+        print(f"*** Unknown syntax: {arg}")
         return False
 
     def do_quit(self, arg):
@@ -124,10 +124,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(arg_list) == 1:
             print("** instance id missing **")
-        elif "{}.{}".format(arg_list[0], arg_list[1]) not in obj_dict.keys():
+        elif f"{arg_list[0]}.{arg_list[1]}" not in obj_dict.keys():
             print("** no instance found **")
         else:
-            del obj_dict["{}.{}".format(arg_list[0], arg_list[1])]
+            del obj_dict[f"{arg_list[0]}.{arg_list[1]}"]
             storage.save()
 
     def do_all(self, arg):
@@ -174,7 +174,7 @@ class HBNBCommand(cmd.Cmd):
         if len(arg_list) == 1:
             print("** instance id missing **")
             return False
-        if "{}.{}".format(arg_list[0], arg_list[1]) not in obj_dict.keys():
+        if f"{arg_list[0]}.{arg_list[1]}" not in obj_dict.keys():
             print("** no instance found **")
             return False
         if len(arg_list) == 2:
@@ -188,14 +188,14 @@ class HBNBCommand(cmd.Cmd):
                 return False
 
         if len(arg_list) == 4:
-            obj = obj_dict["{}.{}".format(arg_list[0], arg_list[1])]
+            obj = obj_dict[f"{arg_list[0]}.{arg_list[1]}"]
             if arg_list[2] in obj.__class__.__dict__.keys():
                 valtype = type(obj.__class__.__dict__[arg_list[2]])
                 obj.__dict__[arg_list[2]] = valtype(arg_list[3])
             else:
                 obj.__dict__[arg_list[2]] = arg_list[3]
         elif type(eval(arg_list[2])) == dict:
-            obj = obj_dict["{}.{}".format(arg_list[0], arg_list[1])]
+            obj = obj_dict[f"{arg_list[0]}.{arg_list[1]}"]
             for k, v in eval(arg_list[2]).items():
                 if (k in obj.__class__.__dict__.keys() and
                         type(obj.__class__.__dict__[k]) in {str, int, float}):
