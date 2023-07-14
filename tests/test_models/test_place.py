@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A modue that defines unittests for models/place.py.
+"""A modue that defines unittests for models(place.py).
 Unittest classes:
     TestPlace_instantiation
     TestPlace_save
