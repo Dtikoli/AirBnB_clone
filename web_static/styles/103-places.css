@@ -53,35 +53,13 @@
     text-align: center;
   }
   
-  /* Format  guest/room/bathroom sticker */
+  /* Width of each guest/room/bathroom sticker */
   .places .max_guest,
   .places .number_rooms,
   .places .number_bathrooms{
     width: 100px;
-    background-repeat: no-repeat;
-    background-position: top center;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
   }
-   
-  .max_guest {
-    background-image: url('../images/icon_group.png');
-  }
-
-  .number_rooms {
-    background-image: url('../images/icon_bed.png');
-  }
-
-  .number_bathrooms {
-    background-image: url('../images/icon_bath.png');
-  }
-
-  .max_guest h4, .number_rooms h4, .number_bathrooms h4 {
-    margin: 5px;
-  } 
-
-
+  
   /* Padding around owner */
   .places .user {
     margin: 20px auto 20px auto;
